@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background-color: #3F00FF;
+  }
+  
+  /* Container */
+  .container {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .pages {
+    height: 100vh;
+    width: 100vw;
+    overflow-y: auto;
+    overflow: hidden;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+  }
+  
+  /* Pages */
+  .page {
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 40px;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .page1 {
+    background-image: url('baleine.jpg');}
+
+    .page2 {
+        background-image: url('clock.jpg');}
+
+        .page3 {
+            background-image: url('femmes.jpg');}
+
+            .page4 {
+                background-image: url('pc.jpg');}
+
+                .page5 {
+                    background-image: url('page5.jpg');}
+
+                    .page6 {
+                        background-image: url('page6.jpg');}
+
+    
+                          
+  
+  /*.page:nth-child(odd) { background-color: #3F00FF; }
+  .page:nth-child(even) { background-color: #4b10ff; }*/
+  
+  /* Top bar, menu, etc. */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 12px;
+    z-index: 10;
+  }
+  
+  .top-left .title { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+  .top-left .subtitles { font-weight: 400; font-size: 16px; }
+  
+  .menu {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .menu a {
+    padding: 6px 16px;
+    border: 2px solid white;
+    border-radius: 12px;
+    background: white;
+    color: black;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .menu a:hover, .menu a:focus {
+    background-color: black;
+    color: white;
+    outline: none;
+    border: 2px solid black;
+  }
+
+
+  .main-title {
+font-size: 60px;
+font-weight: bold;
+font-style: normal;
+  }
+
+
+  .subtitle{
+
+margin-top: 20px;
+
+  }
+
+  .subtitle a { 
+    background: transparent;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .subtitle a:hover, .subtitle a.focus {
+
+   
+    color: white;
+    outline: none;
+    font-style: normal;
+    text-decoration: underline;
+
+  }
+
+  
+  /* Le grand numéro en bas à droite fixe */
+  .bottom-right .number {
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    font-weight: 800;
+    font-size: 72px;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .bottom-right .roles-title {
+
+font-weight: 700;
+
+  }
+
+   .bottom-right .roles-list {
+
+font-size: 14px;
+
+  }
+
+  
+  /* Burger */
+  .burger {
+    display: none;
+    width: 32px;
+    height: 24px;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 20;
+  }
+  .burger div {
+    height: 3.5px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .burger.active div:nth-child(1) { transform: translateY(10.5px) rotate(45deg); }
+  .burger.active div:nth-child(2) { opacity: 0; }
+  .burger.active div:nth-child(3) { transform: translateY(-10.5px) rotate(-45deg); }
+  
+  .menu-mobile {
+    display: none;
+    position: fixed;
+    top: 55px;
+    right: 20px;
+    background: rgba(63,0,255,0.9);
+    border: 2px solid white;
+    border-radius: 12px;
+    padding: 10px 20px;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 15;
+  }
+  .menu-mobile a {
+    padding: 8px 20px;
+    border: 2px solid white;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .menu-mobile a:hover, .menu-mobile a:focus {
+    background-color: rgba(255 255 255 / 0.8);
+    color: #3F00FF;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .menu { display: none; }
+    .burger { display: flex; }
+    .page::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.2);
+        z-index: 0;
+      }
+      .page > * {
+        position: relative;
+        z-index: 1;
+      }
+      .main-title {
+        font-size: 34px;
+        font-weight: bold;
+        font-style: normal;
+          }
+  }
+
+
+  @media (max-width: 600px) {
+    .page { padding: 15px 20px; }
+    .center-left  { font-size: 40px; }
+    .bottom-right .number { font-size: 44px; }
+    .page::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.2);
+        z-index: 0;
+      }
+      .page > * {
+        position: relative;
+        z-index: 1;
+      }
+      .main-title {
+        font-size: 30px;
+        font-weight: bold;
+        font-style: normal;
+          }
+  }
+
+  @media (max-width: 600px) {
+    .bottom-right .number {
+      font-size: 44px;
+      right: 20px;
+      bottom: 15px;
+      .page::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.2);
+        z-index: 0;
+      }
+      .page > * {
+        position: relative;
+        z-index: 1;
+      }
+    }
+    .main-title {
+        font-size: 30px;
+        font-weight: bold;
+        font-style: normal;
+          }
+  }
+  
+  /* Animations */
+  .page .top-left,
+  .page .center-left,
+  .page .bottom-right {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .page.animated .top-left,
+  .page.animated .center-left,
+  .page.animated .bottom-right {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  
